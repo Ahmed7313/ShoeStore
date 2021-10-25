@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 class ShoeViewModel : ViewModel() {
 
     private val _shoeList = MutableLiveData<MutableList<Shoe>>()
-    val getLivedataList:LiveData<MutableList<Shoe>> get() = _shoeList
+    val shoeList:LiveData<MutableList<Shoe>> get() = _shoeList
 
 
     init {
@@ -17,11 +17,14 @@ class ShoeViewModel : ViewModel() {
 
     fun dummyData(){
         addShoe("asdasd", "22.12", "safsdafsdf", "asfsdfsadfsdaf")
+        addShoe("asdasd", "22.12", "safsdafsdf", "asfsdfsadfsdaf")
+        addShoe("asdasd", "22.12", "safsdafsdf", "asfsdfsadfsdaf")
+
     }
 
     fun addShoe(name: String, size: String, company: String, description: String) {
         var shoe= Shoe(name, size, company, description)
-        _shoeList.value?.add(shoe)
+        _shoeList.addNewItem(shoe)
 
     }
 
@@ -30,5 +33,11 @@ class ShoeViewModel : ViewModel() {
         size.text = shoe.size
         company.text = shoe.company
         description.text = shoe.description
+    }
+
+    fun <T> MutableLiveData<MutableList<T>>.addNewItem(item: T) {
+        val oldValue = this.value ?: mutableListOf()
+        oldValue.add(item)
+        this.value = oldValue
     }
 }

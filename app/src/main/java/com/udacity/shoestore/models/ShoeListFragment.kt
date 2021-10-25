@@ -37,7 +37,7 @@ class ShoeListFragment : Fragment() {
                 .actionShoeListFragmentToAddingShoeFragment())
         }
 
-        shoeViewModel.getLivedataList.observe(viewLifecycleOwner, Observer { newShoe ->
+        shoeViewModel.shoeList.observe(viewLifecycleOwner, Observer { newShoe ->
             newShoe.forEach { shoe ->
                 var linearLayout = binding.listOfShoes
                 val view = layoutInflater.inflate(R.layout.list_item, null)
