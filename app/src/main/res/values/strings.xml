@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_to_shows_app">Login to Shoes Store</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="enter_your_password">Enter your Password here</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="enter_you_email_here">Enter you Email here</string>
+    <string name="Email">Email</string>
+    <string name="password">password</string>
+    <string name="show_text">Welcome to the Shoe Store inventory App</string>
+    <string name="direction_text">if you want to see amazing shoes, cleick down here</string>
+    <string name="lets_go">Lets Go</string>
+    <string name="instuctions">"Instruction "</string>
+    <string name="instructions_text">Get  ready to see a variaty of great shoes collection, and also add great shoes to the store by your choice</string>
+    <string name="click_on_shop_now_to_start">Click on Shop now to start</string>
+    <string name="shop_now">Shop Now</string>
+    <string name="list_of_great_shoes">List of Great Shoes</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="Shoehint">insert your Shoe Name here</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_name_hint">Insert Company Name</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="shoe_size_hint">Insert Size</string>
+    <string name="description">Shoe description</string>
+    <string name="description_hint"> insert description of the shoe</string>
+    <string name="shoe_details_header">Add your Shoe Here</string>
+    <string name="enter_shoe_name">enter shoe name</string>
+    <string name="enter_company_name">enter company name</string>
+    <string name="enter_shoe_size">enter shoe size</string>
+    <string name="enter_description">enter description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+</resources>
