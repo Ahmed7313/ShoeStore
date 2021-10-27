@@ -119,7 +119,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/description"
+                    android:id="@+id/company_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
