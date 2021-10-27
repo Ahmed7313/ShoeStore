@@ -11,15 +11,6 @@ class ShoeViewModel : ViewModel() {
     val shoeList:LiveData<MutableList<Shoe>>
     get() = _shoeList
 
-
-    init {
-        dummyData()
-    }
-
-    fun dummyData(){
-
-    }
-
     fun addShoe(name: String, size: String, company: String, description: String) {
         var shoe= Shoe(name, size, company, description)
         _shoeList.addNewItem(shoe)
@@ -37,5 +28,9 @@ class ShoeViewModel : ViewModel() {
         val oldValue = this.value ?: mutableListOf()
         oldValue.add(item)
         this.value = oldValue
+    }
+
+    fun getShoeName (){
+
     }
 }

@@ -39,6 +39,12 @@ class AddingShoeFragment : Fragment() {
                     AddingShoeFragmentDirections.actionAddingShoeFragmentToShoeListFragment()
                 )
         }
+
+        binding.cancel.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(
+                AddingShoeFragmentDirections.actionAddingShoeFragmentToShoeListFragment()
+            )
+        }
         return binding.root
     }
 

@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ListItemBindingImpl
+import kotlinx.android.synthetic.main.list_item.view.*
 
 
 class ShoeListFragment : Fragment() {
@@ -29,8 +30,6 @@ class ShoeListFragment : Fragment() {
         setHasOptionsMenu(true)
 
 
-        //shoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
-
         binding.addingShoe.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(ShoeListFragmentDirections
                 .actionShoeListFragmentToAddingShoeFragment())
@@ -39,19 +38,17 @@ class ShoeListFragment : Fragment() {
         shoeViewModel.shoeList.observe(viewLifecycleOwner, Observer { newShoe ->
             newShoe.forEach { shoe ->
                 var linearLayout = binding.listOfShoes
-                val view = layoutInflater.inflate(R.layout.list_item, null)
                 val bindingItem : ListItemBindingImpl = DataBindingUtil.inflate(inflater, R.layout.list_item,
                     container, false)
-//                var name: TextView = bindingItem.root.shoe_name
-//                var size: TextView = bindingItem.root.shoe_size
-//                var company: TextView = bindingItem.root.company_name
-//                var description: TextView = bindingItem.root.description
-                var name: TextView = view.findViewById(R.id.shoe_name)
-                var size: TextView = view.findViewById(R.id.shoe_size)
-                var company: TextView = view.findViewById(R.id.company_name)
-                var description: TextView = view.findViewById(R.id.description)
+                bindingItem.viewModel = shoeViewModel
+                bindingItem.setLifecycleOwner(this)
+                var name: TextView = bindingItem.root.shoe_name
+                var size: TextView = bindingItem.root.shoe_size
+                var company: TextView = bindingItem.root.company_name
+                var description: TextView = bindingItem.root.description
+
                 shoeViewModel.bindShoetoView(name, size, company, description,shoe )
-                linearLayout.addView(view)
+                linearLayout.addView(bindingItem.root)
             }
         })
 

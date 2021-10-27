@@ -28,7 +28,9 @@
         android:label="InstructionFragment" >
         <action
             android:id="@+id/action_instructionFragment_to_shoeListFragment"
-            app:destination="@id/shoeListFragment" />
+            app:destination="@id/shoeListFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/shoeListFragment"
@@ -40,7 +42,9 @@
             app:destination="@id/addingShoeFragment" />
         <action
             android:id="@+id/action_shoeListFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/addingShoeFragment"
@@ -48,6 +52,7 @@
         android:label="AddingShoeFragment" >
         <action
             android:id="@+id/action_addingShoeFragment_to_shoeListFragment"
-            app:destination="@id/shoeListFragment" />
+            app:destination="@id/shoeListFragment"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
 </navigation>
