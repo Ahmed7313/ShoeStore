@@ -16,20 +16,20 @@ class ShoeViewModel : ViewModel() {
         get() = _eventSaveShoeDetailPress
 
     var shoe = Shoe(
-        "a",
-        "0",
-        "b",
-        "c"
+        "",
+        "",
+        "",
+        ""
     )
 
-    fun addShoe(name: String, size: String, company: String, description: String) {
-         shoe= Shoe(name, size, company, description)
+    fun addShoe (){
         _shoeList.addNewItem(shoe)
-
-    }
-
-    fun addShoeTest (){
-        _shoeList.addNewItem(shoe)
+        shoe = Shoe(
+            "",
+            "",
+            "",
+            ""
+        )
         _eventSaveShoeDetailPress.value = true
     }
 
