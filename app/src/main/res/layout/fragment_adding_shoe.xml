@@ -4,6 +4,17 @@
 
     <!-- Constraint Layout because I prefer to have the items place set in place but still adjust with the size of the screen -->
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.udacity.shoestore.models.ShoeViewModel" />
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -56,6 +67,7 @@
                     android:ems="10"
                     android:hint="@string/enter_shoe_name"
                     android:importantForAutofill="no"
+                    android:text="@={shoe.name}"
                     android:inputType="textPersonName" />
             </LinearLayout>
 
@@ -78,6 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:text="@={shoe.company}"
                     android:hint="@string/enter_company_name"
                     android:inputType="textPersonName"
                     android:importantForAutofill="no" />
@@ -102,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:text="@={shoe.size}"
                     android:hint="@string/enter_shoe_size"
                     android:inputType="numberDecimal"
                     android:importantForAutofill="no" />
@@ -123,6 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="@={shoe.description}"
                     android:hint="@string/enter_description"
                     android:importantForAutofill="no"
                     android:inputType="textMultiLine|text" />
@@ -139,6 +154,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/save"
+            android:onClick="@{() -> viewmodel.addShoeTest() }"
             android:background="@drawable/rounded_corners"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

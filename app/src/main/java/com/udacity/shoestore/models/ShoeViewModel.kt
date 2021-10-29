@@ -11,10 +11,26 @@ class ShoeViewModel : ViewModel() {
     val shoeList:LiveData<MutableList<Shoe>>
     get() = _shoeList
 
+    private val _eventSaveShoeDetailPress = MutableLiveData(false)
+    val eventSaveShoeDetailPress: LiveData<Boolean>
+        get() = _eventSaveShoeDetailPress
+
+    var shoe = Shoe(
+        "a",
+        "0",
+        "b",
+        "c"
+    )
+
     fun addShoe(name: String, size: String, company: String, description: String) {
-        var shoe= Shoe(name, size, company, description)
+         shoe= Shoe(name, size, company, description)
         _shoeList.addNewItem(shoe)
 
+    }
+
+    fun addShoeTest (){
+        _shoeList.addNewItem(shoe)
+        _eventSaveShoeDetailPress.value = true
     }
 
     fun bindShoetoView(name: TextView, size: TextView, company: TextView, description: TextView, shoe: Shoe) {
@@ -30,7 +46,7 @@ class ShoeViewModel : ViewModel() {
         this.value = oldValue
     }
 
-    fun getShoeName (){
-
+    fun saveShoeDetailComplete() {
+        _eventSaveShoeDetailPress.value = false
     }
 }

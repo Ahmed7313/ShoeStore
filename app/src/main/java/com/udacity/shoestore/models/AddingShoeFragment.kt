@@ -8,6 +8,8 @@ import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentAddingShoeBinding
@@ -27,18 +29,17 @@ class AddingShoeFragment : Fragment() {
             R.layout.fragment_adding_shoe, container, false
         )
 
+        binding.viewmodel = viewModel
+        binding.shoe = viewModel.shoe
 
-        binding.save.setOnClickListener {
-            var name = shoe_name.text.toString()
-            var size = shoe_size.text.toString()
-            var company = company_name.text.toString()
-            var descreiption = company_description.text.toString()
 
-                viewModel.addShoe(name, size, company, descreiption)
+        viewModel.eventSaveShoeDetailPress.observe(viewLifecycleOwner, {
+            if (it) {
                 NavHostFragment.findNavController(this).navigate(
-                    AddingShoeFragmentDirections.actionAddingShoeFragmentToShoeListFragment()
-                )
-        }
+                    AddingShoeFragmentDirections.actionAddingShoeFragmentToShoeListFragment())
+                viewModel.saveShoeDetailComplete()
+            }
+        })
 
         binding.cancel.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(
@@ -47,8 +48,6 @@ class AddingShoeFragment : Fragment() {
         }
         return binding.root
     }
-
-
 }
 
 

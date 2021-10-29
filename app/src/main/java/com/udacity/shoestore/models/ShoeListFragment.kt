@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.list_item.view.*
 class ShoeListFragment : Fragment() {
 
     private val shoeViewModel: ShoeViewModel by activityViewModels()
-    private lateinit var shoe : Shoe
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +27,7 @@ class ShoeListFragment : Fragment() {
         var binding : FragmentShoeListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list,
             container, false)
         setHasOptionsMenu(true)
-
+        binding.shoeListViewModel = shoeViewModel
 
         binding.addingShoe.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(ShoeListFragmentDirections
